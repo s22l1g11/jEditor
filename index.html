@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Editor</title>
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<!--<link href="css/bootstrap-glyphicons.css" rel="stylesheet" media="screen">-->
+		<!-- create own scripts -->
+		<script>
+			
+			function bold(whatToDo)
+			{
+				var whichType = whatToDo;
+				/*console.log(whichType);*/
+				if (whichType == "bold")
+				{
+					var textFieldContent = $('#editorField').val();
+					textFieldContent+='<b> ';
+					$('#editorField').val("");
+					$('#editorField').val(textFieldContent);
+					$('#result').html(textFieldContent);
+					$("#buttonBold").html('<button onClick="bold(\'unbold\')" class="btn btn-default"><span class="icon icon-bold"></span></button>');
+					$('#editorField').focus();
+
+
+				}
+				else if (whichType == "unbold")
+				{
+					var textFieldContent = $('#editorField').val();
+					textFieldContent+='</b> ';
+					$('#editorField').val("");
+					$('#editorField').val(textFieldContent);
+					$('#result').html(textFieldContent);
+					$("#buttonBold").html('<button onClick="bold(\'bold\')" class="btn btn-default"><span class="icon icon-bold"></span></button>');
+					$('#editorField').focus();
+				}
+				
+			}
+			
+			function italic(whatToDo)
+			{
+				var whichType = whatToDo;
+				/*console.log(whichType);*/
+				if (whichType == "italic")
+				{
+					var textFieldContent = $('#editorField').val();
+					textFieldContent+='<i> ';
+					$('#editorField').val("");
+					$('#editorField').val(textFieldContent);
+					$('#result').html(textFieldContent);
+					$("#buttonItalic").html('<button onClick="italic(\'unitalic\')" class="btn btn-default"><span class="icon icon-italic"></span></button>');
+					$('#editorField').focus();
+
+
+				}
+				else if (whichType == "unitalic")
+				{
+					var textFieldContent = $('#editorField').val();
+					textFieldContent+='</i> ';
+					$('#editorField').val("");
+					$('#editorField').val(textFieldContent);
+					$('#result').html(textFieldContent);
+					$("#buttonItalic").html('<button onClick="italic(\'unitalic\')" class="btn btn-default"><span class="icon icon-italic"></span></button>');
+					$('#editorField').focus();
+				}
+				
+			}
+			
+			function underline(whatToDo)
+			{
+				var whichType = whatToDo;
+				/*console.log(whichType);*/
+				if (whichType == "underline")
+				{
+					var textFieldContent = $('#editorField').val();
+					textFieldContent+='<u> ';
+					$('#editorField').val("");
+					$('#editorField').val(textFieldContent);
+					$('#result').html(textFieldContent);
+					$("#buttonUnderline").html('<button onClick="underline(\'un-underline\')" class="btn btn-default"><span class="icon icon-text-width"></span></button>');
+					$('#editorField').focus();
+
+
+				}
+				else if (whichType == "un-underline")
+				{
+					var textFieldContent = $('#editorField').val();
+					textFieldContent+='</u> ';
+					$('#editorField').val("");
+					$('#editorField').val(textFieldContent);
+					$('#result').html(textFieldContent);
+					$("#buttonUnderline").html('<button onClick="underline(\'underline\')" class="btn btn-default"><span class="icon icon-text-width"></span></button>');
+					$('#editorField').focus();
+				}
+				
+			}
+			
+			function replace()
+			{
+				var content = $('#editorField').val();
+				$('#result').html(content);
+				/*$('#editorField').keydown(function(e){
+				if (e.keyCode == 13) {
+					var content = $('#editorField').val();
+					content += '<br>';
+					$('#editorField').val(content);
+					$('#result').html(content);
+				}
+			});*/
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Editor</h1>
+		<p>Dies soll ein kleiner Editor werden in dem auch verschiedene Texteigenschaften (fett, kursiv etc.) erm&ouml;glicht werden sollen!</p>
+		<div id="textButtons" class="row">
+			<div id="buttonBold" class="span1"><button onClick="bold('bold')" class="btn btn-default"><span class="icon icon-bold"></span></button></div>
+			<div id="buttonItalic" class="span1"><button onClick="italic('italic')" class="btn btn-default"><span class="icon icon-italic"></span></button></div>
+			<div id="buttonUnderline" class="span1"><button onClick="underline('underline')" class="btn btn-default"><span class="icon icon-text-width"></span></button></div>
+		</div>
+		<form class="span9">
+		<br>
+		<textarea rows="3" style="height:400px;" class="input-block-level" id="editorField" onKeyUp="replace()"></textarea><br>
+		<div class="pull-right" id="result"></div>
+		<input type="submit" class="btn btn-large btn-primary" value="absenden" />
+		</form>
+	</body>
+	
+	<!-- get scripts -->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="js/bootstrap.js"></script>
+</html>
